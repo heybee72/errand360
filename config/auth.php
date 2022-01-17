@@ -51,6 +51,20 @@ return [
             'provider' => 'admin', // set the provider
             'hash' => false,
         ],
+
+        'rider-api' => [ // add another guard for the staff
+            'driver' => 'jwt',
+            'provider' => 'rider', // set the provider
+            'hash' => false,
+        ],
+
+        'customer-api' => [ // add another guard for the staff
+            'driver' => 'jwt',
+            'provider' => 'customer', // set the provider
+            'hash' => false,
+        ],
+
+        
     ],
 
     /*
@@ -79,10 +93,17 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
         ],
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+
+        'rider' => [ // Add new staff provider
+            'driver' => 'eloquent',
+            'model' => App\Models\Rider::class,
+        ],
+        'customer' => [ // Add new staff provider
+            'driver' => 'eloquent',
+            'model' => App\Models\Customer::class,
+        ],
+
+
     ],
 
     /*

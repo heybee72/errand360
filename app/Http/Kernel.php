@@ -54,7 +54,9 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
-        'jwt.verify' => \App\Http\Middleware\AdminJwtMiddleware::class,
+        'admin-api' => \App\Http\Middleware\AdminJwtMiddleware::class,
+        'rider-api' => \App\Http\Middleware\RiderJwtMiddleware::class,
+        'customer-api' => \App\Http\Middleware\customerJwtMiddleware::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,

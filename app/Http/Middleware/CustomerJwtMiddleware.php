@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AdminJwtMiddleware
+class CustomerJwtMiddleware
 {
     /**
      * Handle an incoming request.
@@ -20,9 +20,9 @@ class AdminJwtMiddleware
             return response()->json(['error'=>"Unauthorized"], 401);
         }
         
-         if (!auth('admin-api')->check()) {
+         if (!auth('customer-api')->check()) {
             return response()->json([
-                'message'=> 'Admin is unauthorised!'
+                'message'=> 'Customer is unauthorised!'
             ], 401); 
         }
         return $next($request);
